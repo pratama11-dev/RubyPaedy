@@ -81,4 +81,13 @@ header.main {
         width: 80%;
         padding: 0.5em;
     }
+    .notice, #notice {
+        background: rgb(255, 123, 0);
+        border-radius: 0.5em;
+        color: #ffffff;
+        font-weight: bold;
+        margin-bottom: 1em;
+        padding: 1em 1.414em;
+        text-align: center;
+    }
 }
