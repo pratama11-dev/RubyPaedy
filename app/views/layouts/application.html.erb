@@ -9,6 +9,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
+
+    <%= javascript_pack_tag 'locale_switcher', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -20,10 +26,11 @@
     <section class="content">
       <nav class="side_nav">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/questions">Questions</a></li>
-          <li><a href="/news">News</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/"><%= t('.home') %></a></li>
+          <li><a href="/questions"><%= t('.questions') %></a></li>
+          <li><a href="/news"><%= t('.news') %></a></li>
+          <li><a href="/contact"><%= t('.contact') %></a></li>
+          <li><a href="/login"><%= t('.login') %></a></li>
         </ul>
 
         <% if session[:user_id] %>
@@ -45,6 +52,18 @@
       <main class='<%= controller.controller_name %>'>
         <%= yield %>
       </main>
+
+      <aside>
+        <%= form_tag store_index_path, class: 'locale' do %>
+          <li activeClass="active">
+            <a href="/en">Eng</a>
+          </li>
+          <li activeClass="active">
+            <a href="/id">Ind</a>
+          </li>
+        <% end %>
+      </aside>
+      
     </section>
   </body>
 </html>

@@ -81,6 +81,19 @@ header.main {
         width: 80%;
         padding: 0.5em;
     }
+    .locale {
+        float: right;
+        margin: 1em;
+        display: flex;
+        // position: fixed;
+        li{
+            list-style-type: none;
+            padding: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
     .notice, #notice {
         background: rgb(255, 123, 0);
         border-radius: 0.5em;
