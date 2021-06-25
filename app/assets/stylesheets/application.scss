@@ -71,10 +71,15 @@ header.main {
                     text-decoration: none;
                 }
                 a:hover {
-                    background: none;
-                    color: white;
+                    cursor: pointer;
                 }
             }
+        }
+        .badge {
+            background-color: #f02020;
+            color: #ffffff;
+            border-radius: 50%;
+            padding: 0.1rem 0.2rem;
         }
     }
     main {

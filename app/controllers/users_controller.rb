@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorize
   # GET /users or /users.json
   def index
     @users = User.order(:name)
@@ -25,8 +25,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to users_url,
-          notice: "User #{@user.name} was successfully created." }
+          notice: "User #{skip_before_action :authorize@user.name} was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
